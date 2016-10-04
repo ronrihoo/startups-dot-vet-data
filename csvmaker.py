@@ -1,3 +1,6 @@
+# Brief: converts to CSV format from given type -- this is a custom converter with hard-coded hot-fixes,
+#        as needed for startups.vet operations
+#
 # Written for startups.vet data
 #
 # 2016 Sep 16   -   Ronald Rihoo

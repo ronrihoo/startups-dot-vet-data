@@ -24,16 +24,16 @@ def make_path(pathname):
     while loop <= 5:
         print("Looking for " + fullpath)
 
-        if not os.path.isdir(pathname):                                     # if pathname does not exist
-            print("Directory does not exist.")                              # notify user
+        if not os.path.isdir(pathname):  # if pathname does not exist
+            print("Directory does not exist.")  # notify user
             print("Attempting to make directory " + pathname)
-            os.makedirs(pathname)                                           # make directory using desired pathname
+            os.makedirs(pathname)  # make directory using desired pathname
             print("Directory has been made.")
             print("Changing directory to " + pathname)
-            os.chdir(pathname)                                              # change to directory
+            os.chdir(pathname)  # change to directory
             print("\\" + pathname + " has been successfully created.")
             loop = 6
-        else:                                                               # or else just change directory to it
+        else:  # or else just change directory to it
             print("...\nIt exists.")
             print("Changing directory to /" + pathname)
             os.chdir(pathname)

@@ -1,6 +1,4 @@
-# scraper.py
-#
-# In its early stages, so the name doesn't entirely fit.
+# Brief: in its early stages, so the name doesn't entirely fit yet
 #
 # 2016 Oct 01   -   Ronald Rihoo
 #
@@ -9,12 +7,10 @@ import urllib.request
 
 
 class Scraper:
-
     def __init__(self):
         pass
 
     def read_remote_html_file(self, remote_address):
-
         """
         reads HTML code from a remote HTML file over the internet
 
@@ -28,7 +24,6 @@ class Scraper:
         return string
 
     def read_local_html_file(self, path):
-
         """
         reads HTML code from an HTML file stored on the local storage
 
