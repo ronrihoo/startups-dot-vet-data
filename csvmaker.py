@@ -4,6 +4,29 @@
 #
 
 
+def xls_to_csv(data):
+    csv_data = []
+    for row in data:
+        for index, cell in enumerate(row):
+            try:
+                if ',' in cell:
+                    if type(cell) == type(u''):
+                        cell = cell.encode('utf-8')
+                    csv_data.append('\"{}\"'.format(cell))
+                else:
+                    csv_data.append('{}'.format(cell))
+            except:
+                csv_data.append('{}'.format(cell))
+            if index != len(row) - 1:
+                csv_data.append(','.format(cell))
+        csv_data.append('\n')
+    return hotfix_for_xls_to_csv(''.join(csv_data))
+
+
+def hotfix_for_xls_to_csv(csv_data):
+    return csv_data.replace('b"', 'b\'').replace('b\'', '').replace('""', '"').replace('\'"', '"').replace('\t', '')
+
+
 def convert_to_csv(data):
     csv_data = []
     for items in data:

@@ -1,3 +1,5 @@
+# Brief: scrapes http://www.startups.vet/companies
+#
 # Written for startups.vet
 #
 # 2016 Sep 16   -   Ronald Rihoo
@@ -5,6 +7,7 @@
 
 import urllib.request
 from bs4 import BeautifulSoup
+import pathmaker
 import csvmaker
 
 
@@ -89,20 +92,20 @@ def find_links(html):
     return link_list
 
 
-def run(page_url, local=False, filename='startups_data'):
+def run(page_url, local=False, path='../csv_files', filename='startups_data'):
     companies = []
-
+    print('Converting HTML data to CSV...')
     if local:
         html = read_local_html_file(page_url)
     else:
         html = read_remote_html_file(page_url)
-
     links = find_links(html)
-
     for link in links:
         companies.append(get_company(link, local=False))
-
+    pathmaker.make_path(path)
+    print('Creating ' + filename + '.csv...')
     csvmaker.save_conversion_to_file(filename, csvmaker.convert_to_csv(companies))
+    print('Conversion is complete.')
 
 
 run('http://www.startups.vet/companies', local=False)
